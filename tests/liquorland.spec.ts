@@ -6,8 +6,8 @@ test('My first automation test', async ({ page }) => {
     await page.goto('https://liquorland.co.nz/');
     const yesButton = page.getByRole('button', { name: 'Yes', exact: false });
     // Robust approach: Wait for it to be visible, then click
-    await yesButton.waitFor({ state: 'visible' });
-    //or await page.waitForTimeout(3000);
+    //await yesButton.waitFor({ state: 'visible' }); *This may be useful if no other pop-ups*
+    await page.waitForTimeout(5000);
     await yesButton.click();
 
     //await page.getByLabel('Close Popup').click();
